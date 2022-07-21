@@ -1,13 +1,3 @@
-var id_list = ["muzi", "frodo", "apeach", "neo"];
-var report = [
-  "muzi frodo",
-  "apeach frodo",
-  "frodo neo",
-  "muzi neo",
-  "apeach muzi",
-];
-var k = 2;
-
 const isOverlapBan = (attackReport, attack, ban) => {
   return Object.entries(attackReport).find(([exAttack, exBans]) => {
     return (
@@ -16,9 +6,9 @@ const isOverlapBan = (attackReport, attack, ban) => {
   });
 };
 
-function solution(a, b, c) {
+function solution(id_list, report, k) {
   let attackReport = {};
-  let banCntReport = {};
+  let reportedCnt = {};
 
   report.forEach((D, i) => {
     const [attack, ban] = D.split(" ");
@@ -30,24 +20,24 @@ function solution(a, b, c) {
       ? [...attackReport[attack], ban]
       : [ban];
 
-    banCntReport[ban] = banCntReport[ban] ? banCntReport[ban] + 1 : 1;
+    reportedCnt[ban] = reportedCnt[ban] ? reportedCnt[ban] + 1 : 1;
   });
 
-  const bans = Object.entries(banCntReport)
-    .filter(([id, banCnt]) => banCnt >= k)
-    .map(([entries]) => entries[0]);
+  const banIds = Object.entries(reportedCnt)
+    .filter(([id, cnt]) => cnt >= k)
+    .map(([id, cnt]) => id);
 
-  const finish = Object.entries(attackReport).map(
-    ([attackId, reportedList]) => {
-      const attacks = (reportedList as string[]).filter((D) => {
-        return bans.find((ban) => ban === D);
+  const attackCntInfo = Object.entries(attackReport).map(
+    ([attackId, reportedIds]) => {
+      const attacks = (reportedIds as string[]).filter((reportedId) => {
+        return banIds.find((banId) => banId === reportedId);
       });
       return { [attackId]: attacks.length };
     }
   );
 
   const answer = id_list.map((id) => {
-    const result = finish.find((D) => {
+    const result = attackCntInfo.find((D) => {
       return Object.keys(D)[0] === id;
     });
     return result ? Object.values(result)[0] : 0;
@@ -56,20 +46,15 @@ function solution(a, b, c) {
   return answer;
 }
 
-solution(1, 1, 1);
+const id_list = ["muzi", "frodo", "apeach", "neo"];
+const report = [
+  "muzi frodo",
+  "apeach frodo",
+  "frodo neo",
+  "muzi neo",
+  "apeach muzi",
+];
+const k = 2;
+solution(id_list, report, k);
 
-export {};
-
-// var id_list = ["muzi", "frodo", "apeach", "neo"];
-//
-//     var report = [
-//       "muzi frodo",
-//       "apeach frodo",
-//       "frodo neo",
-//       "muzi neo",
-//       "apeach muzi",
-//     ];
-//
-//     k = 2;
-
-//   return [2, 1, 1, 0];
+export { solution };
