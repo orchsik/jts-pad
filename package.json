@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start:ts": "ts-node",
+    "start:play": "ts-node ./src/ts/playground.ts",
     "build": "tsc",
     "test": "jest",
     "test:watch": "jest --watch"
