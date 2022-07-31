@@ -23,25 +23,25 @@ describe("input string convert to Number", () => {
 
   it("convert finally", () => {
     const answer = solution("one4seveneight");
-    expect(answer).toBe("1478");
+    expect(answer).toBe(1478);
   });
 });
 
 describe("various solution case", () => {
   it("one4seveneight", () => {
     const answer = solution("one4seveneight");
-    expect(answer).toBe("1478");
+    expect(answer).toBe(1478);
   });
   it("23four5six7", () => {
     const answer = solution("23four5six7");
-    expect(answer).toBe("234567");
+    expect(answer).toBe(234567);
   });
   it("2three45sixseven", () => {
     const answer = solution("2three45sixseven");
-    expect(answer).toBe("234567");
+    expect(answer).toBe(234567);
   });
   it("123", () => {
     const answer = solution("123");
-    expect(answer).toBe("123");
+    expect(answer).toBe(123);
   });
 });

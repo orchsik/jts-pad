@@ -1,3 +1,6 @@
+// https://school.programmers.co.kr/learn/courses/30/lessons/92334
+// [O]
+
 const isOverlapBan = (attackReport, attack, ban) => {
   return Object.entries(attackReport).find(([exAttack, exBans]) => {
     return (
