@@ -1,3 +1,6 @@
+// https://school.programmers.co.kr/learn/courses/30/lessons/72410
+// [TODO]
+
 // 3단계 new_id에서 마침표(.)가 2번 이상 연속된 부분을 하나의 마침표(.)로 치환합니다.
 // 4단계 new_id에서 마침표(.)가 처음이나 끝에 위치한다면 제거합니다.
 // 5단계 new_id가 빈 문자열이라면, new_id에 "a"를 대입합니다.

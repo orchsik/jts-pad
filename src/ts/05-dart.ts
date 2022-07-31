@@ -1,5 +1,5 @@
-// [O]
 // https://school.programmers.co.kr/learn/courses/30/lessons/17682
+// [O]
 
 const solution = (str: string) => {
   const calculatesList = [];

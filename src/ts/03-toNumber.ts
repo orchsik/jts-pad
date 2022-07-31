@@ -1,5 +1,5 @@
 // https://school.programmers.co.kr/learn/courses/30/lessons/81301
-// [O]
+// [TODO]
 
 const solution = (input: string) => {
   const result = [];
@@ -36,24 +36,26 @@ function separateByNumber(input: string) {
   let source = input;
   const separated = [];
   while (numberMatch(source)) {
-    const result = sliceByMatch(numberMatch(source));
-    source = result.others;
-    separated.push(result.word, result.number);
-    if (!numberMatch(result.others) && result.others) {
-      separated.push(result.others);
+    const sliced = sliceByMatch(numberMatch(source));
+    source = sliced.others;
+    separated.push(sliced.word, sliced.number);
+    if (!numberMatch(sliced.others)) {
+      separated.push(sliced.others);
     }
   }
+
+  if (separated.length === 0) separated.push(source);
   return separated;
 }
 
 const separteNumberCalling = (input: string) => {
   const result = [];
-  let tmp = [];
+  let characters = [];
   input.split("").forEach((char, i) => {
-    tmp.push(char);
-    const str = tmp.join("");
-    if (parseInt(PIVOT[str] || parseInt(str))) {
-      tmp = [];
+    characters.push(char);
+    const str = characters.join("");
+    if (Number(PIVOT[str] || str)) {
+      characters = [];
       result.push(str);
     }
   });
