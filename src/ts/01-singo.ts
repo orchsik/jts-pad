@@ -14,7 +14,7 @@ function solution(id_list, report, k) {
   let reportedCnt = {};
 
   report.forEach((D, i) => {
-    const [attack, ban] = D.split(" ");
+    const [attack, ban] = D.split(' ');
     if (isOverlapBan(attackReport, attack, ban)) {
       return;
     }
@@ -49,13 +49,13 @@ function solution(id_list, report, k) {
   return answer;
 }
 
-const id_list = ["muzi", "frodo", "apeach", "neo"];
+const id_list = ['muzi', 'frodo', 'apeach', 'neo'];
 const report = [
-  "muzi frodo",
-  "apeach frodo",
-  "frodo neo",
-  "muzi neo",
-  "apeach muzi",
+  'muzi frodo',
+  'apeach frodo',
+  'frodo neo',
+  'muzi neo',
+  'apeach muzi',
 ];
 const k = 2;
 solution(id_list, report, k);
