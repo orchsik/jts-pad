@@ -2,10 +2,17 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "npm: start:ts current file",
+      "label": "npm: start:ts",
       "type": "shell",
       "command": "npm",
       "args": ["run", "start:ts", "${relativeFile}"],
+      "problemMatcher": []
+    },
+    {
+      "label": "npm: start:js",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "start", "${relativeFile}"],
       "problemMatcher": []
     }
   ]
