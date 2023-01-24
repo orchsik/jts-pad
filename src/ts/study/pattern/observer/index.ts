@@ -1,5 +1,5 @@
 /**
- * subject
+ * subject = publisher
  */
 interface Subject {
   attach(observer: Observer): void;
@@ -49,7 +49,7 @@ class ConcreteSubject implements Subject {
 }
 
 /**
- * observer
+ * observer = subscirber
  */
 interface Observer {
   update(subject: Subject): void;
